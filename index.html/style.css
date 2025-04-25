@@ -1,122 +1,49 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-header {
-    background: #f4a261;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 1rem;
-}
-
-header nav ul li a {
-    color: #fff;
+/* 予約ボタン（ナビ内） */
+.reserve-button {
+    background-color: #f28ab2;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
     text-decoration: none;
+    transition: background-color 0.3s;
+}
+.reserve-button:hover {
+    background-color: #e16090;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-#profile .container {
-    display: flex; /* 左右に並べる */
-    align-items: center; /* 縦の位置を揃える */
-    justify-content: space-between; /* テキストと写真を離す */
-    margin: 20px 0;
-    padding: 20px;
-}
-
-#profile .profile-text {
-    flex: 1; /* テキスト部分の幅を調整 */
-    margin-right: 20px; /* 写真との間隔を設定 */
-}
-
-#profile .profile-photo {
-    flex: 0 0 150px; /* 固定幅の写真エリア */
-}
-
-#profile .profile-photo img {
-    width: 150px; 
-    height: auto; /* アスペクト比を維持 */
-    border-radius: 50%; /* 写真を丸くする */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 軽い影をつける */
-}
-
-
-section {
-    padding: 2rem 0;
-    border-bottom: 1px solid #ccc;
-}
-
-section h2 {
-    margin-bottom: 1rem;
-    color: #f4a261;
-}
-
-.gallery img {
-    width: 30%;
-    margin: 1%;
-    border-radius: 5px;
-    display: inline-block;
-}
-
-form label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    background: #f4a261;
-    color: #fff;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-form button:hover {
-    background: #e76f51;
-}
-
-footer {
-    background: #333;
-    color: #fff;
+/* トップページCTAボタン */
+.reservation-cta {
     text-align: center;
-    padding: 1rem 0;
+    margin: 30px 0;
+}
+.reservation-cta a {
+    background-color: #f28ab2;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.reservation-cta a:hover {
+    background-color: #e16090;
 }
 
-html {
-    scroll-behavior: smooth; /* smoothスクロールを無効にする */
-  }
-
-  
+/* ご予約セクション内の大ボタン */
+.big-reserve-button {
+    display: inline-block;
+    background-color: #f28ab2;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.big-reserve-button:hover {
+    background-color: #e16090;
+}
