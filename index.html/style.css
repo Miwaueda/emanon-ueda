@@ -1,122 +1,729 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* =============================================
+   style.css - EMANON新宿西口 上田美和
+   「心と髪を整える」プライベートサロン
+   ============================================= */
+
+/* ===== リセット・基本設定 ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
-header {
-    background: #f4a261;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 1rem;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-#profile .container {
-    display: flex; /* 左右に並べる */
-    align-items: center; /* 縦の位置を揃える */
-    justify-content: space-between; /* テキストと写真を離す */
-    margin: 20px 0;
-    padding: 20px;
-}
-
-#profile .profile-text {
-    flex: 1; /* テキスト部分の幅を調整 */
-    margin-right: 20px; /* 写真との間隔を設定 */
-}
-
-#profile .profile-photo {
-    flex: 0 0 150px; /* 固定幅の写真エリア */
-}
-
-#profile .profile-photo img {
-    width: 150px; 
-    height: auto; /* アスペクト比を維持 */
-    border-radius: 50%; /* 写真を丸くする */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 軽い影をつける */
-}
-
-
-section {
-    padding: 2rem 0;
-    border-bottom: 1px solid #ccc;
-}
-
-section h2 {
-    margin-bottom: 1rem;
-    color: #f4a261;
-}
-
-.gallery img {
-    width: 30%;
-    margin: 1%;
-    border-radius: 5px;
-    display: inline-block;
-}
-
-form label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    background: #f4a261;
-    color: #fff;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-form button:hover {
-    background: #e76f51;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
+:root {
+    --cream: #F5F0EA;
+    --warm-white: #FAF8F5;
+    --charcoal: #2C2825;
+    --taupe: #8B7D6B;
+    --gold: #C4A882;
+    --deep-green: #3D4A3E;
+    --light-taupe: #D4C8B8;
 }
 
 html {
-    scroll-behavior: smooth; /* smoothスクロールを無効にする */
-  }
+    scroll-behavior: smooth;
+}
 
-  
+body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* ===== ヘッダー ===== */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(245, 240, 234, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-taupe);
+    padding: 16px 0;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.logo span {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--taupe);
+    font-family: 'Noto Serif JP', serif;
+    margin-top: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--taupe);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--charcoal);
+}
+
+.header-booking {
+    background: var(--deep-green);
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.header-booking:hover {
+    background: var(--charcoal);
+}
+
+/* ===== ヒーロー ===== */
+.hero {
+    min-height: 100vh;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: var(--charcoal);
+    opacity: 0.04;
+}
+
+.hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.hero-copy .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--taupe);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero-copy h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+
+.hero-copy h1 em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.hero-tagline {
+    font-size: 0.95rem;
+    color: var(--taupe);
+    margin: 24px 0 40px;
+    line-height: 2;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.hero-note {
+    font-size: 0.72rem;
+    color: var(--light-taupe);
+    margin-top: 8px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gold);
+    z-index: -1;
+}
+
+/* ===== ボタン共通 ===== */
+.btn-primary {
+    display: inline-block;
+    background: var(--deep-green);
+    color: white;
+    padding: 18px 40px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: 400;
+}
+
+.btn-primary:hover {
+    background: var(--charcoal);
+    transform: translateY(-1px);
+}
+
+.btn-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--taupe);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    border-bottom: 1px solid var(--light-taupe);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.btn-line:hover {
+    color: var(--charcoal);
+    border-color: var(--taupe);
+}
+
+.btn-cta-white {
+    background: var(--cream);
+    color: var(--deep-green);
+    padding: 18px 48px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    font-weight: 400;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-cta-white:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.btn-cta-outline {
+    border: 1px solid rgba(245, 240, 234, 0.4);
+    color: var(--cream);
+    padding: 18px 48px;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: border-color 0.3s;
+}
+
+.btn-cta-outline:hover {
+    border-color: var(--cream);
+}
+
+/* ===== セクション共通 ===== */
+.section-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.section-header .eyebrow,
+.eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--charcoal);
+}
+
+/* ===== メッセージセクション ===== */
+.message {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 80px 24px;
+}
+
+.message-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.message h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.message p {
+    font-size: 0.9rem;
+    line-height: 2.2;
+    color: var(--light-taupe);
+    margin-bottom: 16px;
+}
+
+.message-highlight {
+    display: inline-block;
+    background: rgba(196, 168, 130, 0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 4px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    margin: 8px 4px;
+}
+
+/* ===== 強みセクション ===== */
+.strengths {
+    padding: 100px 24px;
+    background: var(--warm-white);
+}
+
+.strengths-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.strength-card {
+    background: var(--cream);
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.strength-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s;
+}
+
+.strength-card:hover::before {
+    height: 100%;
+}
+
+.strength-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--light-taupe);
+    line-height: 1;
+    margin-bottom: 16px;
+    font-weight: 300;
+}
+
+.strength-card h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.strength-card p {
+    font-size: 0.82rem;
+    color: var(--taupe);
+    line-height: 1.9;
+}
+
+/* ===== 予約CTAセクション ===== */
+.booking-cta {
+    background: var(--deep-green);
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.booking-cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+}
+
+.booking-cta p {
+    color: rgba(245, 240, 234, 0.65);
+    font-size: 0.85rem;
+    margin-bottom: 40px;
+}
+
+.booking-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== メニューセクション ===== */
+.menu-section {
+    padding: 100px 24px;
+    background: var(--cream);
+}
+
+.menu-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2px;
+}
+
+.menu-item {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 28px 36px;
+    gap: 24px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.menu-item:hover {
+    border-left-color: var(--gold);
+}
+
+.menu-item-name {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+}
+
+.menu-item-desc {
+    font-size: 0.78rem;
+    color: var(--taupe);
+    line-height: 1.7;
+}
+
+.menu-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    white-space: nowrap;
+    font-weight: 300;
+}
+
+.menu-item-price span {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.7rem;
+    color: var(--taupe);
+}
+
+/* ===== プロフィールセクション ===== */
+.profile-section {
+    padding: 100px 24px;
+    background: var(--warm-white);
+}
+
+.profile-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.profile-image {
+    position: relative;
+}
+
+.profile-image img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--light-taupe);
+    z-index: -1;
+}
+
+.profile-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+
+.profile-content .title {
+    font-size: 0.8rem;
+    color: var(--taupe);
+    letter-spacing: 0.15em;
+    margin-bottom: 32px;
+}
+
+.profile-content p {
+    font-size: 0.88rem;
+    color: var(--taupe);
+    line-height: 2.2;
+    margin-bottom: 16px;
+}
+
+/* ===== ギャラリーセクション ===== */
+.gallery-section {
+    padding: 100px 24px;
+    background: var(--charcoal);
+}
+
+.gallery-section .section-header h2 {
+    color: var(--cream);
+}
+
+.gallery-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8);
+    transition: filter 0.4s, transform 0.4s;
+}
+
+.gallery-grid img:hover {
+    filter: saturate(1);
+    transform: scale(1.02);
+}
+
+/* ===== お問い合わせ・アクセス ===== */
+.contact-section {
+    padding: 100px 24px;
+    background: var(--cream);
+}
+
+.contact-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.contact-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--light-taupe);
+}
+
+.contact-block p {
+    font-size: 0.85rem;
+    color: var(--taupe);
+    line-height: 2;
+    margin-bottom: 12px;
+}
+
+.contact-block a {
+    color: var(--deep-green);
+    text-decoration: none;
+}
+
+.contact-block a:hover {
+    text-decoration: underline;
+}
+
+.booking-box {
+    background: var(--deep-green);
+    padding: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-box p {
+    color: rgba(245, 240, 234, 0.7);
+    font-size: 0.78rem;
+    margin-bottom: 20px;
+}
+
+.booking-box a {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--deep-green);
+    padding: 14px 32px;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    font-weight: 400;
+    transition: background 0.3s;
+}
+
+.booking-box a:hover {
+    background: white;
+}
+
+.line-box {
+    background: #06C755;
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.line-box p {
+    color: white;
+    font-size: 0.82rem;
+    margin: 0;
+}
+
+.line-box .line-id {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: white;
+    letter-spacing: 0.1em;
+}
+
+iframe {
+    width: 100%;
+    height: 240px;
+    border: 0;
+    display: block;
+    margin-top: 20px;
+    filter: saturate(0.7);
+}
+
+/* ===== フッター ===== */
+footer {
+    background: var(--charcoal);
+    padding: 40px 24px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.72rem;
+    color: var(--taupe);
+    letter-spacing: 0.15em;
+}
+
+/* ===== スクロールアニメーション ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== スマホ対応（768px以下） ===== */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 60px 24px;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+
+    .hero-image::after {
+        display: none;
+    }
+
+    .strengths-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .booking-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
