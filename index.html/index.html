@@ -217,13 +217,22 @@
 
         .hero-image {
             position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
         }
 
-        .hero-image img {
+        .hero-image .hero-slide {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            aspect-ratio: 3/4;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            opacity: 0;
+            transition: opacity 1.4s ease;
+        }
+
+        .hero-image .hero-slide.active {
+            opacity: 1;
         }
 
         .hero-image::after {
@@ -558,7 +567,7 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 4px;
         }
 
@@ -574,6 +583,32 @@
         .gallery-grid img:hover {
             filter: saturate(1);
             transform: scale(1.02);
+        }
+
+        .style-section {
+            padding: 100px 24px;
+            background: var(--warm-white);
+        }
+
+        .style-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .style-grid img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.92);
+            transition: transform 0.4s;
+        }
+
+        .style-grid img:hover {
+            transform: scale(1.03);
         }
 
         /* ===== CONTACT ===== */
@@ -716,6 +751,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .style-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .contact-inner {
                 grid-template-columns: 1fr;
                 gap: 48px;
@@ -754,6 +793,7 @@
                 <li><a href="#about">プロフィール</a></li>
                 <li><a href="#menu">メニュー</a></li>
                 <li><a href="#gallery">店内</a></li>
+                <li><a href="#style">スタイル</a></li>
                 <li><a href="#contact">アクセス</a></li>
             </ul>
         </nav>
@@ -790,7 +830,10 @@
             </div>
         </div>
         <div class="hero-image fade-up" style="transition-delay: 0.2s">
-            <img src="IMG_2538.jpg" alt="上田美和">
+            <img src="hero-slide-1.jpg" alt="髪の仕上がり" class="hero-slide active">
+            <img src="hero-slide-2.jpg" alt="個室ロッカーへ向かう様子" class="hero-slide">
+            <img src="hero-slide-3.jpg" alt="シャンプースパの様子" class="hero-slide">
+            <img src="hero-slide-4.jpg" alt="ブロー仕上げの様子" class="hero-slide">
         </div>
     </div>
 </section>
@@ -960,9 +1003,28 @@
         <h2>店内のご紹介</h2>
     </div>
     <div class="gallery-grid">
-        <img src="IMG_2203.jpg" alt="サロン外観">
-        <img src="IMG_1677.jpg" alt="個室内">
-        <img src="IMG_2567.jpg" alt="アイテム・設備">
+        <img src="IMG_2203.JPG" alt="EMANON新宿西口 受付">
+        <img src="_ifJK5BzTUqzy6FGaQ__7Q.jpg" alt="個室での施術風景">
+        <img src="_680rSO-QUyZ44blZSWmDg.jpg" alt="アロマクリームバスで使用する香り">
+        <img src="GA8qxSzFThi6h4Lki7btiQ.jpg" alt="使用するアロマオイルとヒマラヤ岩塩">
+    </div>
+</section>
+
+<!-- ===== STYLE ===== -->
+<section class="style-section" id="style">
+    <div class="section-header fade-up">
+        <p class="eyebrow">STYLE</p>
+        <h2>スタイルカタログ</h2>
+    </div>
+    <div class="style-grid">
+        <img src="pBYsfIKNSE--2_CVmH0cvg.jpg" alt="ロングストレートスタイル">
+        <img src="We7T-xthS822x5OMvaTtlQ.jpg" alt="くびれボブ ミルクティーカラー">
+        <img src="IJyV2Ff9SNOMcOkKo9Jt-g.jpg" alt="ミディアムボブ">
+        <img src="ZYW36-FCQwOdIxJycVrZEQ.jpg" alt="ロングレイヤースタイル">
+        <img src="nWGgkDkHTYybJyBTpYRuQw.jpg" alt="セミロングストレート">
+        <img src="eCZG8lzYT4uwfaBVlUiLow.jpg" alt="無造作カールのミディアムスタイル">
+        <img src="h6hTlyevQx6EBsus_WUm8Q.jpg" alt="ショートヘア">
+        <img src="LZDvZjauS5eJkYp0Rn6EWQ.jpg" alt="サイドから見たボブスタイル">
     </div>
 </section>
 
@@ -1018,6 +1080,17 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ヒーロースライドショー
+    const heroSlides = document.querySelectorAll('.hero-image .hero-slide');
+    if (heroSlides.length > 1) {
+        let currentSlide = 0;
+        setInterval(() => {
+            heroSlides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            heroSlides[currentSlide].classList.add('active');
+        }, 3500);
+    }
 </script>
 
 </body>
