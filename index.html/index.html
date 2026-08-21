@@ -554,6 +554,70 @@
             margin-bottom: 16px;
         }
 
+        /* ===== MY STORY ===== */
+        .story-section {
+            padding: 100px 24px;
+            background: var(--cream);
+        }
+
+        .story-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .story-block {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 8px 28px;
+            padding: 40px 0;
+            border-top: 1px solid var(--light-taupe);
+        }
+
+        .story-block:last-child {
+            border-bottom: 1px solid var(--light-taupe);
+        }
+
+        .story-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            font-weight: 300;
+            color: var(--light-taupe);
+            line-height: 1;
+        }
+
+        .story-block h3 {
+            grid-column: 2;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+        }
+
+        .story-block p {
+            grid-column: 2;
+            font-size: 0.88rem;
+            color: var(--taupe);
+            line-height: 2.1;
+        }
+
+        .story-badges {
+            grid-column: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .story-badge {
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            border: 1px solid var(--light-taupe);
+            padding: 7px 16px;
+        }
+
         /* ===== GALLERY ===== */
         .gallery-section {
             padding: 100px 24px;
@@ -747,6 +811,18 @@
                 gap: 48px;
             }
 
+            .story-block {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .story-num,
+            .story-block h3,
+            .story-block p,
+            .story-badges {
+                grid-column: 1;
+            }
+
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -791,6 +867,7 @@
         <nav>
             <ul>
                 <li><a href="#about">コンセプト</a></li>
+                <li><a href="#story">私について</a></li>
                 <li><a href="#menu">メニュー</a></li>
                 <li><a href="#gallery">店内</a></li>
                 <li><a href="#style">スタイル</a></li>
@@ -982,7 +1059,7 @@
         <div class="profile-content fade-up" style="transition-delay:0.2s">
             <p class="eyebrow">STYLIST</p>
             <h2>上田 美和</h2>
-            <p class="title">MIWA UEDA ／ フリーランス美容師（EMANON新宿西口 内）</p>
+            <p class="title">MIWA UEDA ／ フリーランス美容師（EMANON新宿西口）</p>
             <p>
                 美容師になって16年。ずっと「お客さまがほっとできる場所をつくりたい」という気持ちを大切にしてきました。
             </p>
@@ -991,6 +1068,37 @@
             </p>
             <p>
                 アロマクリームバスヘッドスパ・髪質改善・白髪ぼかしが得意です。全メニューに頭皮をほぐすマッサージシャンプーが付いています。「来てよかった」と思っていただけるよう、心をこめてお迎えします。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MY STORY ===== -->
+<section class="story-section" id="story">
+    <div class="section-header fade-up">
+        <p class="eyebrow">MY STORY</p>
+        <h2>私について</h2>
+    </div>
+    <div class="story-inner">
+        <div class="story-block fade-up">
+            <div class="story-num">01</div>
+            <h3>美容師になったきっかけ</h3>
+            <p>
+                中学生の頃、「こんな髪型にしたい」と伝えてもなかなか思い通りにしてもらえなかった経験があります。当時出会った美容師さんが、私の希望をそのまま受け止めて叶えてくれたことが、今も仕事の原点になっています。「こうあるべき」ではなく「その人がどうしたいか」を大切にしたい。その想いは、美容師になって16年たった今も変わりません。
+            </p>
+        </div>
+        <div class="story-block fade-up" style="transition-delay:0.1s">
+            <div class="story-num">02</div>
+            <h3>大切にしている考え方</h3>
+            <p>
+                以前、マッサージの研修で「相手を変えようとしない」という言葉を教わりました。良かれと思う「改善しよう」という気持ちが、時にプレッシャーになってしまうことがある、と。それ以来、施術中は「変える」よりも「寄り添う」ことを意識しています。ゆっくり、その日のあなたのペースで過ごしていただけたら嬉しいです。
+            </p>
+        </div>
+        <div class="story-block fade-up" style="transition-delay:0.2s">
+            <div class="story-num">03</div>
+            <h3>これまでの歩みと資格</h3>
+            <p>
+                個人サロンのアシスタント時代には、頭皮診断を年間1000人以上担当してきました。国家資格に基づく管理美容師も取得しているほか、ヘアケアマイスターミドルやオーガニック・アロマの知識についても、それぞれ認定試験を経て身につけています。ヘッドスパのディプロマは、オーガニックヘッドスパを含め3種類取得。表参道のスクールで東洋医学をベースにした施術も学びました。今はフリーランスとして、一人ひとりとじっくり向き合う働き方を選んでいます。
             </p>
         </div>
     </div>
@@ -1052,7 +1160,7 @@
         </div>
         <div class="contact-block fade-up" style="transition-delay:0.2s">
             <h3>アクセス</h3>
-            <p>〒160-0023<br>東京都新宿区西新宿7丁目10-18<br>小滝橋パシフィカビル 5階 EMANON新宿西口内</p>
+            <p>〒160-0023<br>東京都新宿区西新宿7丁目10-18<br>小滝橋パシフィカビル 5階 EMANON新宿西口</p>
             <p>JR新宿駅西口より徒歩約5分</p>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.291060369136!2d139.69861609999998!3d35.694454500000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188da9f26b4863%3A0xcfd62536bd236b22!2zRWxlYW5vcuaWsOWuv-ilv-WPo-W6lyAvIEVNQU5PTuOCt-OCp-OCouOCteODreODs-aWsOWuv-ilv-WPo-W6lw!5e0!3m2!1sja!2sjp!4v1731754026188!5m2!1sja!2sjp"
@@ -1066,7 +1174,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <p>&copy; 2024 MIWA UEDA. All Rights Reserved. (EMANON新宿西口 内)</p>
+    <p>&copy; 2024 MIWA UEDA. All Rights Reserved. (EMANON新宿西口)</p>
 </footer>
 
 <script>
